@@ -1,0 +1,42 @@
+skill: frantic-board-audit
+version: "0.1.0"
+
+catalog:
+  kind: skill
+  audience: public
+  visibility: public
+  role: canonical
+
+harness:
+  cases:
+    - name: validates-public-board-audit-files
+      runner: default
+      inputs:
+        evidence_path: ../evidence.json
+        report_path: ../report.md
+        claim_ref: frantic:claim:test
+      expect:
+        status: sealed
+        receipt:
+          schema: runx.receipt.v1
+          state: sealed
+          disposition: closed
+          reason_code: process_closed
+
+runners:
+  default:
+    default: true
+    type: cli-tool
+    command: node
+    args:
+      - run.mjs
+    inputs:
+      evidence_path:
+        type: string
+        required: true
+      report_path:
+        type: string
+        required: true
+      claim_ref:
+        type: string
+        required: true
