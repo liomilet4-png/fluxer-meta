@@ -1,0 +1,68 @@
+name: Frantic 43 governed receipt
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/frantic-43-receipt.yml"
+      - "frantic/43/**"
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  receipt:
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[receipt-output]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Generate governed runx receipt
+        run: |
+          set -euo pipefail
+          mkdir -p .runx/receipts frantic/43/runx_receipt_output
+          npx -y @runxhq/cli@0.6.13 init --json || true
+          npx -y @runxhq/cli@0.6.13 --version | tee frantic/43/runx_receipt_output/runx_version.txt
+          SEED=$(python3 - <<'PY'
+          import os, base64
+          print(base64.b64encode(os.urandom(32)).decode())
+          PY
+          )
+          export RUNX_RECEIPT_SIGN_KID="github-actions-frantic-43-${GITHUB_RUN_ID}"
+          export RUNX_RECEIPT_SIGN_ED25519_SEED_BASE64="$SEED"
+          export RUNX_RECEIPT_SIGN_ISSUER_TYPE="ci"
+          npx -y @runxhq/cli@0.6.13 skill frantic/43/runx_receipt_test \
+            -i evidence_path=../evidence.json \
+            -i report_path=../report.md \
+            -i claim_ref=frantic:claim:8f4144b4-ef7e-45a2-9cc4-53944d89b3a1 \
+            -R .runx/receipts \
+            --json | tee frantic/43/runx_receipt_output/runx_skill_output.json
+          RECEIPT=$(find .runx/receipts -maxdepth 1 -type f -name 'sha256:*.json' | sort | tail -n 1)
+          test -n "$RECEIPT"
+          cp "$RECEIPT" frantic/43/runx_receipt_output/receipt.json
+          ID=$(basename "$RECEIPT" .json)
+          printf 'runx:receipt:%s\n' "$ID" | tee frantic/43/runx_receipt_output/receipt_ref.txt
+          npx -y @runxhq/cli@0.6.13 verify --receipt "$RECEIPT" --json | tee frantic/43/runx_receipt_output/verify.json
+
+      - name: Commit receipt output
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add frantic/43/runx_receipt_output
+          if git diff --cached --quiet; then
+            echo "No receipt output changes to commit."
+            exit 0
+          fi
+          git commit -m "Add Frantic 43 governed receipt [receipt-output]"
+          git push
