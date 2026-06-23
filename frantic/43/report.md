@@ -14,6 +14,15 @@ This audit covered the public board, public ledger, and current bounty pages/API
 - Bounty pages/API sampled: #11, #21, #33, #43, #45, #46, #47, #49
 - Required #43 artifacts: public_url, evidence_json, receipt_ref, report
 
+## Governed Validation
+
+The public evidence and this report are validated by the `frantic/43/runx_receipt_test` runx skill in this repository. The validation runner checks that the evidence JSON has a substantive summary, at least six observations, board counts, and that this Markdown report contains a substantive findings section.
+
+- Runner: `frantic/43/runx_receipt_test`
+- Command: `runx skill frantic/43/runx_receipt_test -i evidence_path=../evidence.json -i report_path=../report.md -i claim_ref=frantic:claim:8f4144b4-ef7e-45a2-9cc4-53944d89b3a1 -R .runx/receipts --json`
+- Runtime target: runx CLI 0.6.13 or newer
+- Receipt: supplied as the `receipt_ref` artifact in the delivery packet
+
 ## Counts
 
 The captured public board response contained 55 total bounties.
@@ -89,6 +98,10 @@ The captured public board response contained 55 total bounties.
 - After claiming #43, the public board projection changed #43 to claimed and showed no open claim slots.
 - Board status counts are explicit and internally count 55 total bounties.
 
-## Limitation
+## Operator Actions
 
-A governed runx receipt is still pending on this Windows host. runx 0.6.13 is installed and observed, but local receipt creation on Windows previously failed with a receipt-store write error. The evidence package therefore includes public API sources, counts, sampled URLs, findings, and recommendations; receipt generation should be retried on a Linux/WSL host if Frantic enforces receipt_ref shape strictly.
+- Add a stale-date or example-template note to #11.
+- Add a visible >$10 eligibility badge/filter for #21, #33, and #46.
+- Cross-link #33, #45, and #46 as the Sourcey task family.
+- Keep #49 available, but separate $0 goodwill tasks from paid-work discovery.
+- Keep #43 in the claimed/review flow while the current delivery is evaluated.
