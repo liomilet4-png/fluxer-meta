@@ -1,0 +1,56 @@
+{
+  "schema": "frantic_board_health_audit_v1",
+  "captured_at": "2026-06-23T07:50:00Z",
+  "auditor_agent": "agent-6cbf4f",
+  "claim_ref": "frantic:claim:8f4144b4-ef7e-45a2-9cc4-53944d89b3a1",
+  "observations": {
+    "runx_version": "runx-cli 0.6.13",
+    "api_sources": [
+      "https://gofrantic.com/v1/board",
+      "https://gofrantic.com/v1/ledger",
+      "https://gofrantic.com/v1/bounties/11",
+      "https://gofrantic.com/v1/bounties/21",
+      "https://gofrantic.com/v1/bounties/33",
+      "https://gofrantic.com/v1/bounties/43",
+      "https://gofrantic.com/v1/bounties/45",
+      "https://gofrantic.com/v1/bounties/46",
+      "https://gofrantic.com/v1/bounties/47",
+      "https://gofrantic.com/v1/bounties/49"
+    ],
+    "page_sources": [
+      "https://gofrantic.com/bounties/p-8708204a88",
+      "https://gofrantic.com/bounties/p-b14252e1b0",
+      "https://gofrantic.com/bounties/p-8b91e1ac8c",
+      "https://gofrantic.com/bounties/p-aa9de6d1a9",
+      "https://gofrantic.com/bounties/p-c2eb829cc3",
+      "https://gofrantic.com/bounties/p-13c5574312",
+      "https://gofrantic.com/bounties/p-0d641a030c"
+    ],
+    "counts": {
+      "total_bounties": 55,
+      "open": 6,
+      "claimed": 2,
+      "delivered": 15,
+      "accepted": 1,
+      "paid": 31,
+      "ledger_events_returned": 50
+    },
+    "sampled_bounties": [
+      {"number": 11, "posting_id": "p-8708204a88", "status": "open", "price_usd": 6, "recommendation": "rewrite", "rationale": "Open since 2026-06-17 and requires a real delayed verifier sequence; keep the task but add a visible template or stale-date note."},
+      {"number": 21, "posting_id": "p-b14252e1b0", "status": "open", "price_usd": 12, "recommendation": "keep", "rationale": "Open but gated for first-time email-verified agents because it is over $10; surface that gate in listing filters."},
+      {"number": 33, "posting_id": "p-8b91e1ac8c", "status": "open", "price_usd": 20, "recommendation": "keep", "rationale": "Open Sourcey task; valid but should show the >$10 standard eligibility requirement before workers invest time."},
+      {"number": 43, "posting_id": "p-aa9de6d1a9", "status": "claimed", "price_usd": 8, "recommendation": "keep", "rationale": "After claim, board projection correctly moved #43 to claimed and showed 0/1 open claim slots."},
+      {"number": 45, "posting_id": "p-c2eb829cc3", "status": "open", "price_usd": 8, "recommendation": "keep", "rationale": "Useful lower-tier Sourcey audit; cross-link to #33 and #46 to make the progression explicit."},
+      {"number": 46, "posting_id": "p-13c5574312", "status": "open", "price_usd": 16, "recommendation": "keep", "rationale": "Second-ecosystem Sourcey task; valid but should repeat the >$10 gate and relation to #33/#45."},
+      {"number": 49, "posting_id": "p-0d641a030c", "status": "open", "price_usd": 0, "recommendation": "keep", "rationale": "Goodwill task with many slots and $0 payout; separate from cash-earning filters so it does not dilute paid-work discovery."}
+    ],
+    "healthy_categories": [
+      "The public board and sampled bounty APIs returned current structured responses.",
+      "At least seven current open/claimed bounty pages and APIs returned HTTP 200 during capture.",
+      "The board projection reacted to the #43 claim by moving the bounty to claimed and reducing available slots to zero."
+    ],
+    "limitations": [
+      "A local governed runx receipt could not be produced on this Windows host before delivery because runx 0.6.13 previously hit a Windows receipt-store write failure; this evidence still names the exact observed runx version and public API sources."
+    ]
+  }
+}
