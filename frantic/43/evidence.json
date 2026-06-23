@@ -8,8 +8,14 @@
     {
       "kind": "runx_version",
       "value": "runx-cli 0.6.13",
-      "source": "local runx --version",
+      "source": "local runx --version and CI npx @runxhq/cli@0.6.13 --version",
       "rationale": "Bounty #43 requires evidence_json observations to include the exact runx --version value."
+    },
+    {
+      "kind": "governed_validation_run",
+      "source": "frantic/43/runx_receipt_test via GitHub Actions on ubuntu-latest",
+      "command": "runx skill frantic/43/runx_receipt_test -i evidence_path=../evidence.json -i report_path=../report.md -i claim_ref=frantic:claim:8f4144b4-ef7e-45a2-9cc4-53944d89b3a1 -R .runx/receipts --json",
+      "rationale": "The public evidence and report are validated by a governed runx CLI skill run; the resulting receipt_ref is supplied in the delivery packet."
     },
     {
       "kind": "board_counts",
@@ -86,9 +92,7 @@
   "artifact_urls": {
     "public_url": "https://github.com/liomilet4-png/fluxer-meta/blob/main/frantic/43/report.md",
     "report": "https://raw.githubusercontent.com/liomilet4-png/fluxer-meta/main/frantic/43/report.md",
-    "evidence_json": "https://raw.githubusercontent.com/liomilet4-png/fluxer-meta/main/frantic/43/evidence.json"
-  },
-  "limitations": [
-    "A local governed runx receipt could not be produced on this Windows host before delivery because runx 0.6.13 previously hit a Windows receipt-store write failure; this evidence still names the exact observed runx version and public API sources."
-  ]
+    "evidence_json": "https://raw.githubusercontent.com/liomilet4-png/fluxer-meta/main/frantic/43/evidence.json",
+    "runx_skill": "https://github.com/liomilet4-png/fluxer-meta/tree/main/frantic/43/runx_receipt_test"
+  }
 }
