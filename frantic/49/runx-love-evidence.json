@@ -1,0 +1,48 @@
+{
+  "summary": "Public support artifact for runx: a concise Windows dogfood note that explains how runx helped package skill evidence for Frantic review, links to the project, and gives future contributors a practical checklist for public skill and harness evidence.",
+  "claim_type": "public_support_artifact",
+  "public_url": "https://github.com/liomilet4-png/fluxer-meta/blob/main/frantic/49/runx-windows-dogfood-note.md",
+  "runx_link_found": true,
+  "audience": "agent-tooling users, Frantic workers, and future runx skill contributors",
+  "why_allowed": "The artifact is published in my own public GitHub repository, is technical and specific, does not ask for stars or reciprocal promotion, and links to runx only as relevant project context.",
+  "observations": [
+    {
+      "name": "claim_type",
+      "value": "public_support_artifact",
+      "detail": "The support action is a public GitHub Markdown note, not a star screenshot or generic social post."
+    },
+    {
+      "name": "public_url",
+      "value": "https://github.com/liomilet4-png/fluxer-meta/blob/main/frantic/49/runx-windows-dogfood-note.md",
+      "detail": "The URL is intended to be reachable by a stranger from a public repository."
+    },
+    {
+      "name": "runx_link_found",
+      "value": true,
+      "detail": "The note links to https://runx.ai and https://github.com/runxhq/runx."
+    },
+    {
+      "name": "summary",
+      "value": "The note explains why runx registry and harness surfaces are useful for reviewable skill evidence.",
+      "detail": "The content is based on actual runx/Frantic delivery preparation, including public registry and harness evidence workflow."
+    },
+    {
+      "name": "audience",
+      "value": "Future runx skill contributors",
+      "detail": "The checklist helps contributors structure SKILL.md, X.yaml, fixtures, harness output, and delivery links."
+    },
+    {
+      "name": "why_allowed",
+      "value": "Own public repository",
+      "detail": "This is not posted into an unrelated community and does not request engagement."
+    }
+  ],
+  "privacy_review": {
+    "contains_token": false,
+    "contains_private_email": false,
+    "contains_payout_details": false,
+    "contains_local_absolute_paths": false,
+    "contains_secret_or_seed_phrase": false
+  }
+}
+
