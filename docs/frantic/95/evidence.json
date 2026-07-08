@@ -6,6 +6,33 @@
   "summary": "The public bounty API for Frantic bounty 97 returns inconsistent required artifact names. The narrative criteria and delivery example require evidence_json, but the top-level required_artifacts and delivery_contract.artifacts require status_json instead. A stranger following the public API contract could prepare the wrong artifact name for delivery.",
   "expected_result": "The required artifact names should be consistent across criteria.artifacts, required_artifacts, delivery_contract.artifacts, and the delivery example.",
   "actual_result": "criteria.artifacts and the delivery example include evidence_json, while required_artifacts and delivery_contract.artifacts include status_json and omit evidence_json.",
+  "observations": [
+    {
+      "name": "claim_type",
+      "value": "bug",
+      "source": "Frantic #95 acceptance criteria"
+    },
+    {
+      "name": "exact_endpoint",
+      "value": "https://gofrantic.com/v1/bounties/97",
+      "source": "public Frantic API"
+    },
+    {
+      "name": "expected_vs_actual",
+      "value": "Expected artifact names to match across criteria, required_artifacts, delivery_contract, and delivery example; actual response mixes evidence_json and status_json.",
+      "source": "public API response observed 2026-07-08T02:01:37Z"
+    },
+    {
+      "name": "reproduction_steps",
+      "value": "Fetch the endpoint and compare bounty.criteria.artifacts, bounty.required_artifacts, bounty.delivery_contract.artifacts[].name, and bounty.criteria.deliveryExample.",
+      "source": "report.md"
+    },
+    {
+      "name": "impact",
+      "value": "Workers or integrations can prepare the wrong delivery artifact name because the public contract is internally inconsistent.",
+      "source": "report.md"
+    }
+  ],
   "reproduction_steps": [
     "Open https://gofrantic.com/v1/bounties/97 in a logged-out browser or fetch it with a normal public GET request.",
     "Read bounty.criteria.artifacts and bounty.criteria.deliveryExample.",
