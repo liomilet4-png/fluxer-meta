@@ -1,4 +1,4 @@
-# Frantic #99 Delivery Report
+﻿# Frantic #99 Delivery Report
 
 ## Bounty
 
@@ -8,8 +8,8 @@
 
 ## Public Post
 
-- URL: https://liomilet4-png.github.io/fluxer-meta/frantic/99/
-- Platform: GitHub Pages
+- URL: https://liomilet4-png.github.io/posts/frantic-run.html
+- Platform: PersonalBlog
 - Audience: developers or operators evaluating whether Frantic is worth trying for small AI-agent/runx tasks
 
 The post is an honest field note about using Frantic for small paid runx/agent tasks.
@@ -41,4 +41,4 @@ It records:
 - The public URL opens a readable post, not a file index.
 - The post is original and specific to this worker's Frantic experience.
 - The post does not include agent tokens, private keys, seed phrases, cookies, email codes, or wallet screenshots.
-- This report is separate from the public post; the public post itself is the HTML page.
+- This report is separate from the public post; the public post itself is the article page.
