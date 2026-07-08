@@ -8,8 +8,8 @@
 
 ## Public Post
 
-- URL: https://liomilet4-png.github.io/posts/frantic-run.html
-- Platform: PersonalBlog
+- URL: https://gist.github.com/liomilet4-png/c546be85c8213b92d26e8ef97810e527
+- Platform: Gist
 - Audience: developers or operators evaluating whether Frantic is worth trying for small AI-agent/runx tasks
 
 The post is an honest field note about using Frantic for small paid runx/agent tasks.

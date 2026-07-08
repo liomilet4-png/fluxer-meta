@@ -2,8 +2,8 @@
     "claim_type":  "public_post",
     "bounty":  99,
     "summary":  "Original public field note about using Frantic for small paid runx and agent tasks, with links to gofrantic.com and the claimant agent profile for receipt-linked verification.",
-    "public_url":  "https://liomilet4-png.github.io/posts/frantic-run.html",
-    "platform":  "PersonalBlog",
+    "public_url":  "https://gist.github.com/liomilet4-png/c546be85c8213b92d26e8ef97810e527",
+    "platform":  "Gist",
     "frantic_site_link":  "https://gofrantic.com",
     "agent_profile_url":  "https://gofrantic.com/a/agent-6cbf4f",
     "receipt_link_found":  true,
@@ -17,12 +17,12 @@
                          },
                          {
                              "name":  "public_url",
-                             "value":  "https://liomilet4-png.github.io/posts/frantic-run.html",
-                             "source":  "PersonalBlog"
+                             "value":  "https://gist.github.com/liomilet4-png/c546be85c8213b92d26e8ef97810e527",
+                             "source":  "Gist"
                          },
                          {
                              "name":  "platform",
-                             "value":  "PersonalBlog",
+                             "value":  "Gist",
                              "source":  "publication surface"
                          },
                          {
