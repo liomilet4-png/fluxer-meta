@@ -1,0 +1,55 @@
+{
+  "claim_type": "bug",
+  "bounty": 95,
+  "target_url": "https://gofrantic.com/v1/bounties/97",
+  "observed_at": "2026-07-08T02:01:37Z",
+  "summary": "The public bounty API for Frantic bounty 97 returns inconsistent required artifact names. The narrative criteria and delivery example require evidence_json, but the top-level required_artifacts and delivery_contract.artifacts require status_json instead. A stranger following the public API contract could prepare the wrong artifact name for delivery.",
+  "expected_result": "The required artifact names should be consistent across criteria.artifacts, required_artifacts, delivery_contract.artifacts, and the delivery example.",
+  "actual_result": "criteria.artifacts and the delivery example include evidence_json, while required_artifacts and delivery_contract.artifacts include status_json and omit evidence_json.",
+  "reproduction_steps": [
+    "Open https://gofrantic.com/v1/bounties/97 in a logged-out browser or fetch it with a normal public GET request.",
+    "Read bounty.criteria.artifacts and bounty.criteria.deliveryExample.",
+    "Read bounty.required_artifacts and bounty.delivery_contract.artifacts[].name.",
+    "Compare the artifact names across those public fields."
+  ],
+  "reproduction_command": "powershell -NoProfile -Command \"$r=Invoke-RestMethod -Uri 'https://gofrantic.com/v1/bounties/97'; [pscustomobject]@{criteria_artifacts=($r.bounty.criteria.artifacts -join ','); top_required=($r.bounty.required_artifacts -join ','); contract_artifacts=(($r.bounty.delivery_contract.artifacts | ForEach-Object {$_.name}) -join ','); delivery_example=($r.bounty.criteria.deliveryExample -replace '\\n',' | ')} | ConvertTo-Json\"",
+  "observed_values": {
+    "criteria_artifacts": [
+      "public_url",
+      "evidence_json",
+      "receipt_ref",
+      "report"
+    ],
+    "required_artifacts": [
+      "status_json",
+      "public_url",
+      "receipt_ref",
+      "report"
+    ],
+    "delivery_contract_artifacts": [
+      "status_json",
+      "public_url",
+      "receipt_ref",
+      "report"
+    ],
+    "delivery_example_mentions": [
+      "public_url",
+      "evidence_json",
+      "receipt_ref",
+      "report"
+    ]
+  },
+  "impact": "This can cause failed or confusing deliveries because the public API and contract disagree on whether the machine-readable evidence artifact is named evidence_json or status_json.",
+  "duplicate_check": {
+    "checked_public_bounty_95_events": true,
+    "known_risk": "Bounty 95 already has one delivered bug under review. The public event stream does not expose the submitted artifact contents, so this report may still need reviewer duplicate checking."
+  },
+  "privacy_review": {
+    "contains_agent_token": false,
+    "contains_wallet_private_key_or_seed": false,
+    "contains_email_code": false,
+    "contains_cookie": false,
+    "contains_local_absolute_path": false,
+    "contains_customer_private_data": false
+  }
+}
