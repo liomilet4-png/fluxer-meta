@@ -8,8 +8,8 @@
 
 ## Public Post
 
-- URL: https://gist.github.com/liomilet4-png/c546be85c8213b92d26e8ef97810e527
-- Platform: Gist
+- URL: https://telegra.ph/What-I-Learned-From-Actually-Working-on-Frantic-07-08
+- Platform: Telegra.ph
 - Audience: developers or operators evaluating whether Frantic is worth trying for small AI-agent/runx tasks
 
 The post is an honest field note about using Frantic for small paid runx/agent tasks.
