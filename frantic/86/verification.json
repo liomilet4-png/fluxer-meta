@@ -1,0 +1,102 @@
+{
+  "schema": "frantic.delivery.verification.v1",
+  "bounty": 86,
+  "generated_at": "2026-08-04T07:00:33Z",
+  "verdict": "passed",
+  "package": "liomilet4-png/contract-drafter@sha-baaae804293e",
+  "source_revision": "1389b8286713e49a3282eb5e71307e1c01dd5acd",
+  "receipt_ref": "runx:receipt:sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6",
+  "checks": [
+    {
+      "id": "cli_version",
+      "status": "passed",
+      "evidence": "runx-cli 0.8.2"
+    },
+    {
+      "id": "registry_publish",
+      "status": "passed",
+      "evidence": "Hosted publish returned status=published for liomilet4-png/contract-drafter@sha-baaae804293e."
+    },
+    {
+      "id": "registry_read",
+      "status": "passed",
+      "evidence": "Registry read resolved owner, version, digest, profile digest, and the draft runner."
+    },
+    {
+      "id": "source_revision_alignment",
+      "status": "passed",
+      "evidence": "PR head and raw X.yaml/SKILL.md URLs resolve commit 1389b8286713e49a3282eb5e71307e1c01dd5acd."
+    },
+    {
+      "id": "pr_contents",
+      "status": "passed",
+      "evidence": "PR 382 contains X.yaml, SKILL.md, two fixtures, local harness output, signed harness receipt, verify verdict, CLI version, and skill inspect evidence."
+    },
+    {
+      "id": "public_urls",
+      "status": "passed",
+      "evidence": "Versioned registry page, canonical registry page, PR, source tree, raw X.yaml, and raw SKILL.md all returned HTTP 200."
+    },
+    {
+      "id": "local_harness",
+      "status": "passed",
+      "evidence": "2 cases, 0 assertion errors"
+    },
+    {
+      "id": "hosted_harness",
+      "status": "passed",
+      "evidence": "Hosted registry accepted and published the immutable package after inline harness validation."
+    },
+    {
+      "id": "clean_install",
+      "status": "passed",
+      "evidence": "Clean install returned digest sha256:7f10f2943d6700813987f61e4ff1753473c1f16c4f7024f293bfcf423ae90620."
+    },
+    {
+      "id": "typed_contract",
+      "status": "passed",
+      "evidence": "Inputs are template, parties, terms; outputs are draft_doc object, deviations array, send_proposal object."
+    },
+    {
+      "id": "dogfood_registry_run",
+      "status": "passed",
+      "evidence": "The post-publish registry ref produced run_agent_task-contract-drafter-assemble-output_8725aac078afdf81 and sealed after explicit caller resolution."
+    },
+    {
+      "id": "dogfood_output",
+      "status": "passed",
+      "evidence": "Output includes draft_ref, two clause/baseline/proposed_change deviations, and a send-as proposal with provider_delivery=not_executed."
+    },
+    {
+      "id": "missing_term_refusal",
+      "status": "passed",
+      "evidence": "Missing governing_law stops at needs_agent, with no draft_doc and no send_proposal."
+    },
+    {
+      "id": "receipt_verify",
+      "status": "passed",
+      "evidence": "runx verify returned valid=true and production signature mode for sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6."
+    },
+    {
+      "id": "send_boundary",
+      "status": "passed",
+      "evidence": "The skill emits a plan-only send-as proposal and performs no provider delivery, signature, filing, or send."
+    },
+    {
+      "id": "secret_scan",
+      "status": "passed",
+      "evidence": "No Frantic token, GitHub token, wallet key, or credential was included in public package or evidence artifacts."
+    }
+  ],
+  "artifact_urls": {
+    "public_url": "https://runx.ai/x/liomilet4-png/contract-drafter@sha-baaae804293e",
+    "source_url": "https://github.com/liomilet4-png/runx/tree/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter",
+    "pr_url": "https://github.com/runxhq/runx/pull/382",
+    "x_yaml": "https://raw.githubusercontent.com/liomilet4-png/runx/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter/X.yaml",
+    "skill_md": "https://raw.githubusercontent.com/liomilet4-png/runx/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter/SKILL.md",
+    "evidence_json": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/evidence.json",
+    "verification_json": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/verification.json",
+    "report": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/report.md"
+  }
+}
+

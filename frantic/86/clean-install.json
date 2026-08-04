@@ -1,0 +1,42 @@
+{
+  "status": "success",
+  "registry": {
+    "action": "install",
+    "source": "remote",
+    "ref": "liomilet4-png/contract-drafter@sha-baaae804293e",
+    "install": {
+      "status": "installed",
+      "destination": "D:\\kun\\读研\\codex\\daily_10_yuan\\frantic_86_work\\clean_install_20260804_145649\\liomilet4-png\\contract-drafter\\sha-baaae804293e\\SKILL.md",
+      "skill_name": "contract-drafter",
+      "source": "runx-registry",
+      "source_label": "runx registry",
+      "skill_id": "liomilet4-png/contract-drafter",
+      "version": "sha-baaae804293e",
+      "digest": "sha256:7f10f2943d6700813987f61e4ff1753473c1f16c4f7024f293bfcf423ae90620",
+      "profile_digest": "sha256:8476c9299facb07b02214f1633c7a0ffd86a8340153e7d687b8f5ef228b6abb6",
+      "profile_state_path": "D:\\kun\\读研\\codex\\daily_10_yuan\\frantic_86_work\\clean_install_20260804_145649\\liomilet4-png\\contract-drafter\\sha-baaae804293e\\.runx\\profile.json",
+      "runner_names": [
+        "draft"
+      ],
+      "trust_tier": "community"
+    },
+    "receipt_metadata": {
+      "destination": "D:\\kun\\读研\\codex\\daily_10_yuan\\frantic_86_work\\clean_install_20260804_145649\\liomilet4-png\\contract-drafter\\sha-baaae804293e\\SKILL.md",
+      "digest": "sha256:7f10f2943d6700813987f61e4ff1753473c1f16c4f7024f293bfcf423ae90620",
+      "install_count": 1,
+      "profile_digest": "sha256:8476c9299facb07b02214f1633c7a0ffd86a8340153e7d687b8f5ef228b6abb6",
+      "publisher": {
+        "display_name": "liomilet4-png",
+        "handle": "liomilet4-png",
+        "id": "user_97d92f1a533b82bc1b357635",
+        "kind": "user"
+      },
+      "ref": "liomilet4-png/contract-drafter@sha-baaae804293e",
+      "skill_id": "liomilet4-png/contract-drafter",
+      "source_label": "runx registry",
+      "status": "installed",
+      "trust_tier": "community",
+      "version": "sha-baaae804293e"
+    }
+  }
+}

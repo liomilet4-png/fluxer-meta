@@ -1,0 +1,224 @@
+{
+  "schema": "frantic.bounty.evidence.v1",
+  "bounty": 86,
+  "generated_at": "2026-08-04T07:00:33Z",
+  "summary": "Published and dogfooded the immutable contract-drafter runx skill. Complete inputs produced a review-only draft, two explicit baseline deviations, and a gated send-as proposal; a missing required term stopped without a draft or proposal.",
+  "package": {
+    "publisher_owner": "liomilet4-png",
+    "name": "contract-drafter",
+    "version": "sha-baaae804293e",
+    "registry_ref": "liomilet4-png/contract-drafter@sha-baaae804293e",
+    "digest": "sha256:7f10f2943d6700813987f61e4ff1753473c1f16c4f7024f293bfcf423ae90620",
+    "profile_digest": "sha256:8476c9299facb07b02214f1633c7a0ffd86a8340153e7d687b8f5ef228b6abb6",
+    "source_revision": "1389b8286713e49a3282eb5e71307e1c01dd5acd",
+    "public_url": "https://runx.ai/x/liomilet4-png/contract-drafter@sha-baaae804293e",
+    "source_url": "https://github.com/liomilet4-png/runx/tree/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter",
+    "pr_url": "https://github.com/runxhq/runx/pull/382",
+    "x_yaml": "https://raw.githubusercontent.com/liomilet4-png/runx/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter/X.yaml",
+    "skill_md": "https://raw.githubusercontent.com/liomilet4-png/runx/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter/SKILL.md"
+  },
+  "artifacts": {
+    "evidence_json": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/evidence.json",
+    "verification_json": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/verification.json",
+    "report": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/report.md",
+    "dogfood_receipt": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/dogfood-receipt.json",
+    "dogfood_output": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/dogfood-output.json",
+    "dogfood_verify": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/dogfood-verify.json",
+    "registry_read": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/registry-read.json",
+    "clean_install": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/clean-install.json",
+    "local_harness": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/local-harness.json",
+    "public_url_checks": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/public-url-checks.json",
+    "pr_meta": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/pr-meta.json"
+  },
+  "commands": {
+    "version": "runx --version",
+    "publish_login": "runx login --provider github --for publish --from-gh --json",
+    "publish": "runx registry publish ./skills/contract-drafter/SKILL.md --registry https://api.runx.ai --json",
+    "registry_read": "runx registry read liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai --json",
+    "install": "runx add liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai --to <clean-dir> --json",
+    "local_harness": "runx harness ./skills/contract-drafter --json",
+    "dogfood": "runx skill liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai --input-json template=<json> --input-json parties=<json> --input-json terms=<json> --json",
+    "dogfood_resume": "runx resume run_agent_task-contract-drafter-assemble-output_8725aac078afdf81 dogfood-answers.json --json",
+    "verify": "runx verify --receipt dogfood-receipt.json --json"
+  },
+  "dogfood": {
+    "package": "liomilet4-png/contract-drafter@sha-baaae804293e",
+    "input": {
+      "template_id": "consulting-basic-v2",
+      "template_version": "2.0",
+      "parties": [
+        "Northstar Analytics LLC",
+        "Cedar Health Systems Inc."
+      ],
+      "required_terms": {
+        "effective_date": "2026-09-01",
+        "services": "quarterly data-governance assessment and remediation recommendations",
+        "fee_usd": 7200,
+        "payment_due_days": 20,
+        "term_months": 12,
+        "termination_notice_days": 60,
+        "governing_law": "State of Washington"
+      }
+    },
+    "command": "runx skill liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai --input-json template=<json> --input-json parties=<json> --input-json terms=<json> --json",
+    "resume_command": "runx resume run_agent_task-contract-drafter-assemble-output_8725aac078afdf81 dogfood-answers.json --json",
+    "output": {
+      "draft_ref": "contract-drafter:consulting-basic-v2:2026-09-01:northstar-analytics:cedar-health-systems",
+      "review_status": "draft_for_review",
+      "delivery_status": "not_sent",
+      "deviations": [
+        {
+          "clause": "fees",
+          "baseline": "payment due within 30 days after invoice",
+          "proposed_change": "payment due within 20 days after invoice",
+          "source_term": "payment_due_days"
+        },
+        {
+          "clause": "term",
+          "baseline": "termination on 30 days written notice",
+          "proposed_change": "termination on 60 days written notice",
+          "source_term": "termination_notice_days"
+        }
+      ],
+      "send_proposal": {
+        "skill": "send-as",
+        "runner": "plan",
+        "principal": "organization:northstar-analytics",
+        "audience": {
+          "type": "recipient",
+          "ref": "organization:cedar-health-systems"
+        },
+        "human_approval_required": true,
+        "legal_review_required": true,
+        "provider_delivery": "not_executed"
+      }
+    },
+    "receipt_ref": "runx:receipt:sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6",
+    "receipt_url": "https://liomilet4-png.github.io/fluxer-meta/frantic/86/dogfood-receipt.json",
+    "verify_verdict": {
+      "valid": true,
+      "signature_mode": "production",
+      "signature_kid": "frantic-86-contract-drafter-dogfood"
+    },
+    "harness_cases": [
+      {
+        "name": "sealed_complete_template_parties_terms",
+        "status": "sealed"
+      },
+      {
+        "name": "refused_missing_required_term",
+        "status": "refused",
+        "runtime_status": "needs_agent",
+        "reason": "missing required term: governing_law; no draft_doc and no send_proposal"
+      }
+    ]
+  },
+  "observations": [
+    {
+      "name": "runx_cli_version",
+      "status": "passed",
+      "exact_output": "runx-cli 0.8.2"
+    },
+    {
+      "name": "publisher_and_registry",
+      "status": "passed",
+      "publisher_owner": "liomilet4-png",
+      "package_name": "contract-drafter",
+      "version": "sha-baaae804293e",
+      "registry_ref": "liomilet4-png/contract-drafter@sha-baaae804293e",
+      "publish_method": "GitHub purpose-scoped login followed by hosted registry publish"
+    },
+    {
+      "name": "source_and_pr_alignment",
+      "status": "passed",
+      "source_revision": "1389b8286713e49a3282eb5e71307e1c01dd5acd",
+      "pr_url": "https://github.com/runxhq/runx/pull/382",
+      "raw_x_yaml": "https://raw.githubusercontent.com/liomilet4-png/runx/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter/X.yaml",
+      "raw_skill_md": "https://raw.githubusercontent.com/liomilet4-png/runx/1389b8286713e49a3282eb5e71307e1c01dd5acd/skills/contract-drafter/SKILL.md"
+    },
+    {
+      "name": "local_harness",
+      "status": "passed",
+      "case_names": [
+        "sealed_complete_template_parties_terms",
+        "refused_missing_required_term"
+      ],
+      "case_count": 2,
+      "assertion_error_count": 0
+    },
+    {
+      "name": "hosted_harness",
+      "status": "passed",
+      "evidence": "The hosted registry accepted and published the immutable inline-harness package with status=published."
+    },
+    {
+      "name": "clean_install",
+      "status": "passed",
+      "install_command": "runx add liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai --to <clean-dir> --json",
+      "installed_digest": "sha256:7f10f2943d6700813987f61e4ff1753473c1f16c4f7024f293bfcf423ae90620"
+    },
+    {
+      "name": "dogfood_draft",
+      "status": "sealed",
+      "draft_ref": "contract-drafter:consulting-basic-v2:2026-09-01:northstar-analytics:cedar-health-systems",
+      "review_status": "draft_for_review",
+      "delivery_status": "not_sent",
+      "receipt_id": "sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6"
+    },
+    {
+      "name": "dogfood_deviations",
+      "status": "passed",
+      "deviations": [
+        {
+          "clause": "fees",
+          "baseline": "payment due within 30 days after invoice",
+          "proposed_change": "payment due within 20 days after invoice"
+        },
+        {
+          "clause": "term",
+          "baseline": "termination on 30 days written notice",
+          "proposed_change": "termination on 60 days written notice"
+        }
+      ]
+    },
+    {
+      "name": "dogfood_send_proposal",
+      "status": "passed",
+      "fields": {
+        "skill": "send-as",
+        "runner": "plan",
+        "principal": "organization:northstar-analytics",
+        "audience_ref": "organization:cedar-health-systems",
+        "human_approval_required": true,
+        "legal_review_required": true,
+        "provider_delivery": "not_executed"
+      }
+    },
+    {
+      "name": "missing_term_refusal",
+      "status": "refused",
+      "case_name": "refused_missing_required_term",
+      "reason": "missing required term: governing_law",
+      "draft_doc_emitted": false,
+      "send_proposal_emitted": false
+    },
+    {
+      "name": "dogfood_receipt_verify",
+      "status": "passed",
+      "receipt_id": "sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6",
+      "valid": true,
+      "signature_mode": "production"
+    },
+    {
+      "name": "new_user_reproduction",
+      "status": "documented",
+      "steps": [
+        "runx add liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai",
+        "runx skill liomilet4-png/contract-drafter@sha-baaae804293e --registry https://api.runx.ai --input-json template=<json> --input-json parties=<json> --input-json terms=<json> --json",
+        "resolve the returned agent request without adding unsupplied terms",
+        "runx verify --receipt <receipt.json> --json"
+      ]
+    }
+  ]
+}
+

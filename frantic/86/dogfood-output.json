@@ -1,0 +1,71 @@
+{
+  "closure": {
+    "closed_at": "2026-08-04T06:58:58.329Z",
+    "disposition": "closed",
+    "reason_code": "agent_act_closed",
+    "summary": "agent act closed with closed"
+  },
+  "receipt_id": "sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6",
+  "result": {
+    "deviations": [
+      {
+        "baseline": "payment due within 30 days after invoice",
+        "clause": "fees",
+        "proposed_change": "payment due within 20 days after invoice",
+        "rationale": "supplied commercial term",
+        "source_term": "payment_due_days"
+      },
+      {
+        "baseline": "termination on 30 days written notice",
+        "clause": "term",
+        "proposed_change": "termination on 60 days written notice",
+        "rationale": "supplied commercial term",
+        "source_term": "termination_notice_days"
+      }
+    ],
+    "draft_doc": {
+      "body": "CONSULTING SERVICES AGREEMENT\nEffective date: 2026-09-01\n\nParties\nThis Consulting Services Agreement is between Northstar Analytics LLC, 410 Cedar Avenue, Seattle, WA 98101, and Cedar Health Systems Inc., 820 Lake Street, Bellevue, WA 98004.\n\nServices\nNorthstar Analytics LLC will perform quarterly data-governance assessment and remediation recommendations.\n\nFees and Payment\nCedar Health Systems Inc. will pay USD 7200 within 20 days after invoice.\n\nTerm and Termination\nThe term is 12 months and either party may terminate on 60 days written notice.\n\nGoverning Law\nThis Agreement is governed by State of Washington.",
+      "delivery_status": "not_sent",
+      "draft_ref": "contract-drafter:consulting-basic-v2:2026-09-01:northstar-analytics:cedar-health-systems",
+      "parties": [
+        "Northstar Analytics LLC",
+        "Cedar Health Systems Inc."
+      ],
+      "review_status": "draft_for_review",
+      "source_clause_ids": [
+        "parties",
+        "services",
+        "fees",
+        "term",
+        "governing-law"
+      ],
+      "template_id": "consulting-basic-v2",
+      "template_version": "2.0",
+      "title": "Consulting Services Agreement",
+      "unresolved_placeholders": []
+    },
+    "send_proposal": {
+      "audience": {
+        "ref": "organization:cedar-health-systems",
+        "type": "recipient"
+      },
+      "content_ref": {
+        "draft_ref": "contract-drafter:consulting-basic-v2:2026-09-01:northstar-analytics:cedar-health-systems",
+        "template_id": "consulting-basic-v2",
+        "template_version": "2.0"
+      },
+      "human_approval_required": true,
+      "legal_review_required": true,
+      "objective": "Review and optionally route the supplied Consulting Services Agreement draft through a separately approved provider lane.",
+      "operator_context": "Draft only; require human approval and legal review. No provider delivery has occurred.",
+      "principal": "organization:northstar-analytics",
+      "provider_delivery": "not_executed",
+      "runner": "plan",
+      "skill": "send-as"
+    }
+  },
+  "run_id": "run_agent_task-contract-drafter-assemble-output_8725aac078afdf81",
+  "schema": "runx.skill_run.v1",
+  "skill_name": "contract-drafter",
+  "status": "sealed"
+}

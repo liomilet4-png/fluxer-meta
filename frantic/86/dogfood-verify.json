@@ -1,0 +1,25 @@
+{
+  "schema": "runx.verify_verdict.v1",
+  "receipt_id": "sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6",
+  "valid": true,
+  "digest": {
+    "status": "valid",
+    "expected": "sha256:fcc2069f4b72e6384496fd7b5da2330e4cebca680e72e4571d7cf6ab04cde525",
+    "actual": "sha256:fcc2069f4b72e6384496fd7b5da2330e4cebca680e72e4571d7cf6ab04cde525"
+  },
+  "content_address": {
+    "status": "valid",
+    "expected": "sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6",
+    "actual": "sha256:b4f124398871e3b951f310d0d5d65a1e2d38b9acf0f133139d17a4f4cc4091d6"
+  },
+  "signature": {
+    "mode": "production",
+    "status": "valid",
+    "kid": "frantic-86-contract-drafter-dogfood"
+  },
+  "lineage": {
+    "status": "unverified",
+    "message": "single receipt verification cannot prove receipt-tree lineage"
+  },
+  "findings": []
+}
